@@ -88,6 +88,19 @@ a {
   border-color: rgba(255, 255, 255, 0.4);
 }
 
+/* hover del menu e del bottone quando scrolled */
+#site-header.scrolled .main-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.15); 
+  color: #ffffff;
+}
+
+
+#site-header.scrolled .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.15); 
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
 /* Contenitore che tiene insieme Nav e Bottone */
 
 .header-bottom {
