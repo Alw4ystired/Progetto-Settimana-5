@@ -93,7 +93,7 @@ html {
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* hover del menu e del bottone quando scrolled */
+/* Hover del menu e del bottone quando scrolled */
 #site-header.scrolled .main-nav a:hover {
   background-color: rgba(255, 255, 255, 0.15);
   color: #ffffff;
@@ -570,5 +570,224 @@ html {
 
   .footer-right {
     text-align: right;
+  }
+}
+
+/* Versione desktop */
+@media screen and (min-width: 992px) {
+
+  /* Card lavori */
+
+  .works-grid {
+    max-width: 1200px;
+  }
+
+  .work-card {
+    width: 31%;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .work-card img {
+    width: 50%;
+  }
+
+  /* Card servizi */
+
+  .services-grid {
+    max-width: 1200px;
+  }
+
+  .service-card {
+    width: 31%;
+  }
+
+  .service-card:last-child {
+    width: 31%;
+  }
+
+  /* Card team */
+
+  .team-grid {
+    max-width: 1200px;
+  }
+
+  .team-card {
+    width: 31%;
+  }
+
+  .team-card:last-child {
+    width: 31%;
+  }
+}
+
+/* Media query per accessibilità: riduzione animazioni */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
+
+/* Modale */
+
+/* Overlay scuro */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Classe per mostrare la modale */
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Contenuto della modale */
+.modal-content {
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+/* Bottone di chiusura (X) */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #1a1a1a;
+}
+
+.modal-content h2 {
+  color: hsl(150, 60%, 30%);
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+}
+
+.modal-subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+/* Form all'interno della modale */
+.form-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: #1a1a1a;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #1a1a1a;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: hsl(150, 60%, 30%);
+  box-shadow: 0 0 0 3px hsla(150, 60%, 30%, 0.1);
+}
+
+/* Bottone Invia */
+
+.btn-submit {
+  background-color: hsl(150, 60%, 30%);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: hsl(150, 60%, 25%);
+}
+
+/* Messaggio di successo */
+.success-message {
+  display: none;
+  background-color: #e6f6eb;
+  color: hsl(150, 60%, 30%);
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 16px;
+  text-align: left;
+}
+
+/* Animazione del messaggio */
+.success-message.show {
+  display: block;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Keyframes per il fading */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
