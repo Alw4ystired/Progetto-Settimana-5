@@ -31,6 +31,10 @@ html {
   scroll-padding-top: 80px;
 }
 
+.container {
+  width: 100%;
+}
+
 /* Aggiungi qui le tue regole, mobile-first. */
 
 /* Header e Navbar*/
@@ -195,6 +199,37 @@ html {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Animazione hero */
+
+@keyframes section-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1 {
+  animation: section-in 0.8s ease forwards;
+  animation-delay: 0s;
+}
+
+.hero p {
+  animation: section-in 0.8s ease forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.hero .btn-primary {
+  animation: section-in 0.8s ease forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
 /* I nostri lavori */
 
 .works,
@@ -209,7 +244,7 @@ html {
 .works h2,
 .services h2 {
   color: hsl(150, 60%, 30%);
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 0 0 40px 0;
   text-align: center;
 }
@@ -282,13 +317,6 @@ html {
   margin: 0;
 }
 
-.service-card p {
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.5;
-  margin: 0;
-}
-
 /* Sezione team */
 
 .team {
@@ -301,7 +329,7 @@ html {
 
 .team h2 {
   color: hsl(150, 60%, 30%);
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 0 0 40px 0;
   text-align: center;
 }
@@ -339,7 +367,6 @@ html {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 24px;
-  /* hsl ha l'opacità (la "a" finale) per farlo trasparente */
   box-shadow: 0 0 0 4px hsla(150, 60%, 30%, 0.2);
 }
 
@@ -385,23 +412,124 @@ html {
 
 .testimonials {
   background-color: #f4f4f4;
-  padding: 60px 24px;
+  padding: 60px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .testimonials h2 {
   color: hsl(150, 60%, 30%);
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 0 0 40px 0;
   text-align: center;
 }
 
+/* Contenitore che maschera i bordi */
 .testimonials-grid {
+  position: relative;
   width: 100%;
-  max-width: 800px;
-  min-height: 200px;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+/* Sfumature laterali (Light) */
+.testimonials-grid::before,
+.testimonials-grid::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.testimonials-grid::before {
+  left: 0;
+  background-image: linear-gradient(to right, #f4f4f4, rgba(244, 244, 244, 0));
+}
+
+.testimonials-grid::after {
+  right: 0;
+  background-image: linear-gradient(to left, #f4f4f4, rgba(244, 244, 244, 0));
+}
+
+/* IL NASTRO CHE SI MUOVE (Animazione lineare) */
+.testimonials-track {
+  display: flex;
+  width: max-content;
+  animation: carousel 60s linear infinite; 
+}
+
+/* Pausa col mouse */
+.testimonials-track.paused {
+  animation-play-state: paused;
+}
+
+/* Animazione carosello */
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* -50% perché JS duplica le card */
+  }
+}
+
+/* Card */
+.testimonial-card {
+  flex: 0 0 300px;
+  margin-right: 24px;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Effetto hover card testimonial */
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  background-color: hsl(150, 55%, 40%);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.testimonial-text {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.testimonial-author {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
+.testimonial-author strong {
+  color: #1a1a1a;
 }
 
 /* Footer */
@@ -433,6 +561,7 @@ html {
 }
 
 /* Icone Social */
+
 .footer-social {
   display: flex;
   gap: 16px;
@@ -454,6 +583,7 @@ html {
 .footer-social a:hover {
   background-color: hsl(150, 60%, 30%);
   color: #ffffff;
+  transform: translateY(-2px);
 }
 
 /* Media query */
@@ -541,6 +671,12 @@ html {
 
   .team-card:last-child {
     width: 100%;
+  }
+
+  /* Sfumature del carosello più larghe */
+  .testimonials-grid::before,
+  .testimonials-grid::after {
+    width: 120px;
   }
 
   /* Footer */
@@ -790,4 +926,149 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Tema scuro */
+
+/* Sfondo generale e testo (Colori generali) */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+/* Header */
+body.dark-mode #site-header {
+  background-color: #1a1a1a;
+  border-bottom-color: #333;
+}
+
+body.dark-mode .logo,
+body.dark-mode .main-nav a {
+  color: #f0f0f0;
+}
+
+body.dark-mode .main-nav a:hover {
+  color: hsl(150, 60%, 45%);
+  background-color: hsla(150, 60%, 45%, 0.1);
+}
+
+body.dark-mode .theme-toggle {
+  color: #f0f0f0;
+  border-color: #444;
+}
+
+/* Header scrolled che rimane verde */
+body.dark-mode #site-header.scrolled {
+  background-color: hsl(150, 60%, 30%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode #site-header.scrolled .logo,
+body.dark-mode #site-header.scrolled .main-nav a,
+body.dark-mode #site-header.scrolled .theme-toggle {
+  color: #ffffff;
+}
+
+/* Sezioni (Sfondi dei blocchi) */
+body.dark-mode .works,
+body.dark-mode .services,
+body.dark-mode .testimonials {
+  background-color: #121212;
+}
+
+body.dark-mode .team {
+  background-color: #1a1a1a;
+}
+
+/* Titoli delle sezioni */
+body.dark-mode .works h2,
+body.dark-mode .services h2,
+body.dark-mode .team h2,
+body.dark-mode .testimonials h2 {
+  color: hsl(150, 60%, 45%);
+}
+
+/* Card (Lavori, Servizi, Team)*/
+body.dark-mode .work-card,
+body.dark-mode .service-card,
+body.dark-mode .team-card {
+  background-color: #1f1f1f;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Testi dentro le card */
+body.dark-mode .service-card h3,
+body.dark-mode .team-card h3 {
+  color: #f0f0f0;
+}
+
+body.dark-mode .service-card p,
+body.dark-mode .team-card p {
+  color: #aaaaaa;
+}
+
+/* Icone dentro le card */
+body.dark-mode .service-card i {
+  color: hsl(150, 60%, 45%);
+}
+
+/* Ruoli del team */
+body.dark-mode .team-role {
+  color: hsl(150, 60%, 45%);
+}
+
+/* Footer */
+body.dark-mode #site-footer {
+  background-color: #0a0a0a;
+  border-top: 1px solid #333;
+}
+
+/* Carosello */
+
+body.dark-mode #site-footer p {
+  color: #888;
+}
+
+body.dark-mode .testimonials {
+  background-color: #121212;
+}
+
+/* Sfumature laterali scure */
+body.dark-mode .testimonials-grid::before {
+  background-image: linear-gradient(to right, #121212, rgba(18, 18, 18, 0));
+}
+
+body.dark-mode .testimonials-grid::after {
+  background-image: linear-gradient(to left, #121212, rgba(18, 18, 18, 0));
+}
+
+body.dark-mode .testimonial-card {
+  background-color: #1f1f1f;
+  border-color: #333;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .testimonial-text,
+body.dark-mode .testimonial-author {
+  color: #aaaaaa;
+}
+
+body.dark-mode .testimonial-author strong {
+  color: #f0f0f0;
+}
+
+/* Transizione fluida per tutti i colori */
+body,
+#site-header,
+.works,
+.services,
+.team,
+.testimonials,
+.work-card,
+.service-card,
+.team-card,
+.testimonial-card,
+#site-footer,
+.footer-social {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
