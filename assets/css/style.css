@@ -25,6 +25,9 @@ a {
   text-decoration: none;
 }
 
+html {
+    scroll-padding-top: 80px; 
+}
 
 /* Aggiungi qui le tue regole, mobile-first. */
 
@@ -353,7 +356,6 @@ a {
   margin-bottom: 16px;
 }
 
-/* Descrizione */
 .team-card p {
   font-size: 0.9rem;
   color: #666;
@@ -361,7 +363,25 @@ a {
   margin: 0;
 }
 
+/* Hover rialzato per tutte le card */
+
+.work-card,
+.service-card,
+.team-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-card:hover,
+.service-card:hover,
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+
+
 /* Dicono di noi */
+
 .testimonials {
   background-color: #f4f4f4;
   padding: 60px 24px;
@@ -384,6 +404,7 @@ a {
 }
 
 /* Footer */
+
 #site-footer {
   background-color: #1a1a1a;
   color: #ffffff;
