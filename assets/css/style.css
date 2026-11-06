@@ -27,3 +27,104 @@ a {
 
 
 /* Aggiungi qui le tue regole, mobile-first. */
+
+/* Header e Navbar*/
+
+#site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  background-color: #ffffff;
+  border-bottom: 2px solid hsl(150, 60%, 30%);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: hsl(150, 60%, 30%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Contenitore che tiene insieme Nav e Bottone */
+
+.header-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 24px; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: #555;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: #1d6b4f;
+}
+
+/* Bottone tema chiaro scuro */
+.theme-toggle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* Hero */
+
+.hero {
+  background-color: hsl(150, 60%, 30%);
+  color: #ffffff;
+  padding: 100px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin: 0 0 32px 0;
+  max-width: 600px;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: #1d6b4f;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
