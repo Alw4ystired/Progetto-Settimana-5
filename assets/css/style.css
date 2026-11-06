@@ -34,19 +34,58 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px 0;
+  padding: 20px 0;
   background-color: #ffffff;
   border-bottom: 2px solid hsl(150, 60%, 30%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: hsl(150, 60%, 30%);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  transition: color 0.3s ease, font-size 0.3s ease, margin-bottom 0.3s ease;
+}
+
+.logo i {
+  font-size: 0.9em; 
+}
+
+
+.main-nav a, 
+.theme-toggle {
+  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Scrolled dopo 100px */
+
+#site-header.scrolled {
+  background-color: hsl(150, 60%, 30%); 
+  padding: 10px 0;
+  border-bottom: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+#site-header.scrolled .logo {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+#site-header.scrolled .main-nav a {
+  color: #ffffff;
+}
+
+#site-header.scrolled .theme-toggle {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* Contenitore che tiene insieme Nav e Bottone */
@@ -70,11 +109,14 @@ a {
 .main-nav a {
   color: #555;
   font-size: 1rem;
-  transition: color 0.2s ease;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .main-nav a:hover {
-  color: #1d6b4f;
+  color: hsl(150, 60%, 30%);
+  background-color: hsla(150, 60%, 30%, 0.1);
 }
 
 /* Bottone tema chiaro scuro */
@@ -90,7 +132,14 @@ a {
   height: 36px;
   padding: 0;
   flex-shrink: 0;
+  color: #1a1a1a;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
+
+.theme-toggle:hover {
+  background-color: hsla(150, 60%, 30%, 0.1);
+  color: hsl(150, 60%, 30%);
+ }
 
 /* Hero */
 
@@ -169,7 +218,6 @@ a {
 
 .work-card img {
   width: 100%; 
-  max-width: 250px; 
   height: auto;
   flex-shrink: 0;
 }
@@ -288,7 +336,6 @@ a {
   font-size: 0.8rem;
   font-weight: 700;
   color: hsl(150, 60%, 30%);
-  text-transform: uppercase; /* Forza tutto in maiuscolo */
   letter-spacing: 1px;
   margin-bottom: 16px;
 }
