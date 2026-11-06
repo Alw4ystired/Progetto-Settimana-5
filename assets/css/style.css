@@ -3,7 +3,9 @@
 
 
 /* Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -26,7 +28,7 @@ a {
 }
 
 html {
-    scroll-padding-top: 80px; 
+  scroll-padding-top: 80px;
 }
 
 /* Aggiungi qui le tue regole, mobile-first. */
@@ -58,11 +60,11 @@ html {
 }
 
 .logo i {
-  font-size: 0.9em; 
+  font-size: 0.9em;
 }
 
 
-.main-nav a, 
+.main-nav a,
 .theme-toggle {
   transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
@@ -70,7 +72,7 @@ html {
 /* Scrolled dopo 100px */
 
 #site-header.scrolled {
-  background-color: hsl(150, 60%, 30%); 
+  background-color: hsl(150, 60%, 30%);
   padding: 10px 0;
   border-bottom: none;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -93,13 +95,13 @@ html {
 
 /* hover del menu e del bottone quando scrolled */
 #site-header.scrolled .main-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.15); 
+  background-color: rgba(255, 255, 255, 0.15);
   color: #ffffff;
 }
 
 
 #site-header.scrolled .theme-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.15); 
+  background-color: rgba(255, 255, 255, 0.15);
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.6);
 }
@@ -116,7 +118,7 @@ html {
 
 .main-nav ul {
   display: flex;
-  gap: 24px; 
+  gap: 24px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -155,7 +157,7 @@ html {
 .theme-toggle:hover {
   background-color: hsla(150, 60%, 30%, 0.1);
   color: hsl(150, 60%, 30%);
- }
+}
 
 /* Hero */
 
@@ -211,6 +213,7 @@ html {
   margin: 0 0 40px 0;
   text-align: center;
 }
+
 /* Contenitore delle card */
 
 .works-grid {
@@ -233,7 +236,7 @@ html {
 }
 
 .work-card img {
-  width: 100%; 
+  width: 100%;
   height: auto;
   flex-shrink: 0;
 }
@@ -327,17 +330,17 @@ html {
 .team-avatar {
   width: 80px;
   height: 80px;
-  background-color: hsl(150, 60%, 30%); 
+  background-color: hsl(150, 60%, 30%);
   color: #ffffff;
-  border-radius: 50%; 
+  border-radius: 50%;
   display: flex;
-  justify-content: center; 
-  align-items: center;     
+  justify-content: center;
+  align-items: center;
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 24px; 
+  margin-bottom: 24px;
   /* hsl ha l'opacità (la "a" finale) per farlo trasparente */
-  box-shadow: 0 0 0 4px hsla(150, 60%, 30%, 0.2); 
+  box-shadow: 0 0 0 4px hsla(150, 60%, 30%, 0.2);
 }
 
 
@@ -378,8 +381,6 @@ html {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-
-
 /* Dicono di noi */
 
 .testimonials {
@@ -400,7 +401,7 @@ html {
 .testimonials-grid {
   width: 100%;
   max-width: 800px;
-  min-height: 200px; 
+  min-height: 200px;
 }
 
 /* Footer */
@@ -426,7 +427,7 @@ html {
 }
 
 #site-footer p {
-  color: #aaaaaa; 
+  color: #aaaaaa;
   font-size: 0.9rem;
   margin: 0 0 24px 0;
 }
@@ -455,3 +456,119 @@ html {
   color: #ffffff;
 }
 
+/* Media query */
+
+/* Versione tablet */
+
+@media screen and (min-width: 768px) {
+
+  /* Header e Navbar */
+  #site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 32px;
+  }
+
+  .logo {
+    margin-bottom: 0;
+  }
+
+  .header-bottom {
+    width: auto;
+    gap: 40px;
+  }
+
+  #site-header.scrolled {
+    padding: 10px 32px;
+  }
+
+  #site-header.scrolled .logo {
+    margin-bottom: 0;
+  }
+
+  /* Card lavori */
+
+  .works-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 900px;
+    justify-content: center;
+  }
+
+  .work-card {
+    flex: 1;
+    min-width: 45%;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .work-card img {
+    width: 50%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  /* Card servizi */
+
+  .services-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 900px;
+    justify-content: center;
+  }
+
+  .service-card {
+    width: 48%;
+  }
+
+  .service-card:last-child {
+    width: 100%;
+  }
+
+  /* Card team */
+
+  .team-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 900px;
+    justify-content: center;
+  }
+
+  .team-card {
+    width: 48%;
+  }
+
+  .team-card:last-child {
+    width: 100%;
+  }
+
+  /* Footer */
+
+  #site-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 40px 32px;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .footer-logo {
+    margin-bottom: 0;
+  }
+
+  #site-footer p {
+    margin: 0;
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+}
